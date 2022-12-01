@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "deno",
+      "command": "run",
+      "problemMatcher": ["$deno"],
+      "label": "run:main.ts",
+      "args": ["-A", "main.ts"]
+    }
+  ]
+}
