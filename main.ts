@@ -8,7 +8,9 @@ for await (const dirEntry of Deno.readDir("code")) {
   }
 }
 
-const latest = files.sort().pop()!;
+const latest = "02a.ts" || files.sort().pop()!;
+
+console.log(`Running ${latest}`);
 
 const process = Deno.run({
   cmd: ["deno", "run", "-A", "--unstable", resolve("code", latest)],
