@@ -5,11 +5,12 @@ import { maybeStat } from "./utils/maybeStat.ts";
 await main();
 
 async function main() {
+  const isDefault = Deno.args[0] === "--default";
   const days = getDays();
-  const dayPrompt = prompt(
-    "Which day do you want to run?",
-    days[days.length - 1].toString()
-  );
+  const defaultDay = days[days.length - 1].toString();
+  const dayPrompt = isDefault
+    ? defaultDay
+    : prompt("Which day do you want to run?", defaultDay);
   if (!dayPrompt) {
     console.log("No day provided");
     return;
@@ -38,7 +39,9 @@ async function main() {
     await runFile(dayFolder, part1File);
     return;
   }
-  const partPrompt = prompt("Which part do you want to run?", "2");
+  const partPrompt = isDefault
+    ? "2"
+    : prompt("Which part do you want to run?", "2");
   if (!partPrompt) {
     console.log("No part provided");
     return;
@@ -59,4 +62,5 @@ async function runFile(cwd: string, file: string) {
     cmd: ["deno", "run", "-A", "--unstable", resolve(file)],
   });
   await process.status();
+  console.log("");
 }

@@ -12,6 +12,13 @@
       "type": "deno",
       "command": "run",
       "problemMatcher": ["$deno"],
+      "label": "run:run.ts --default",
+      "args": ["-A", "scripts/run.ts", "--default"]
+    },
+    {
+      "type": "deno",
+      "command": "run",
+      "problemMatcher": ["$deno"],
       "label": "run:setup.ts",
       "args": ["-A", "scripts/setup.ts"]
     }
