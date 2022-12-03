@@ -5,8 +5,15 @@
       "type": "deno",
       "command": "run",
       "problemMatcher": ["$deno"],
-      "label": "run:main.ts",
-      "args": ["-A", "main.ts"]
+      "label": "run:run.ts",
+      "args": ["-A", "scripts/run.ts"]
+    },
+    {
+      "type": "deno",
+      "command": "run",
+      "problemMatcher": ["$deno"],
+      "label": "run:setup.ts",
+      "args": ["-A", "scripts/setup.ts"]
     }
   ]
 }

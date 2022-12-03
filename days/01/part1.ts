@@ -1,6 +1,6 @@
 export {};
 
-const input = await Deno.readTextFile(`./data/01.txt`);
+const input = await Deno.readTextFile("./input.txt");
 
 const elves = input
   .split("\n\n")

@@ -1,22 +1,26 @@
 export {};
 
-const input = await Deno.readTextFile(`./data/02.txt`);
+const input = await Deno.readTextFile("./input.txt");
 
 let score = 0;
 
+// X means you need to lose
+// Y means you need to end the round in a draw,
+// Z means you need to win. Good luck!"
+
 const play = {
   // Rock 1
-  AX: 1 + 3,
-  AY: 2 + 6,
-  AZ: 3 + 0,
+  AX: 0 + 3,
+  AY: 3 + 1,
+  AZ: 6 + 2,
   // Paper 2
-  BX: 1 + 0,
-  BY: 2 + 3,
-  BZ: 3 + 6,
+  BX: 0 + 1,
+  BY: 3 + 2,
+  BZ: 6 + 3,
   // Scissors 3
-  CX: 1 + 6,
-  CY: 2 + 0,
-  CZ: 3 + 3,
+  CX: 0 + 2,
+  CY: 3 + 3,
+  CZ: 6 + 1,
 };
 
 input
