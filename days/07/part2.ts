@@ -118,17 +118,19 @@ traverse<number>(root, (item, path, next) => {
   }
 
   const size = next().reduce((acc, size) => acc + size, 0);
-  if (path.length > 1) {
-    foldersSize.set(path.join("/"), size);
-  }
+  foldersSize.set(path.join("/"), size);
   return size;
 });
 
-console.log({
-  sum: [...foldersSize.values()]
-    .filter((v) => v <= 100000)
-    .reduce((acc, size) => acc + size, 0),
-});
+const totalSize = foldersSize.get(".") ?? 0;
+const freeSpace = 70000000 - totalSize;
+const missingSpace = 30000000 - freeSpace;
+
+const folderToDeleteSize = [...foldersSize.values()]
+  .filter((v) => v >= missingSpace)
+  .sort((a, b) => a - b)[0];
+
+console.log({ missingSpace, folderToDeleteSize });
 
 function traverse<Result>(
   tree: Folder | File,
