@@ -1,5 +1,10 @@
 {
   "tasks": {
     "run": "deno run -A main.ts"
+  },
+  "lint": {
+    "rules": {
+      "exclude": ["no-explicit-any"]
+    }
   }
 }
